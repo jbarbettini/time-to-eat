@@ -21,7 +21,7 @@
   <section class="section2" id="section2">
     <div class="content">
       <h1> Where are you right now? </h1>
-      <input id="location" type="text" />
+      <input id="location" type="text" onkeypress="return pressEnter(event)"/>
       <button type="button" onclick="pageScroll('section3')"> submit </button>
     </div>
   </section>
@@ -44,7 +44,7 @@
         <div id="loading" style="display:none">
           <img src="images/loading.gif">
           <img src="images/food.png" style="width:50px">
-          <p style="font-size:16px; color: light gray; margin:0px -10%;">finding restaurant...</p>
+          <p style="font-size:16px; color: light gray; margin:0px -10%;">nom nom nom...</p>
         </div>
 
       </div>
@@ -66,17 +66,14 @@
         <div id="map"></div>
       </div>
       <div class="container-footer">
-        <div class="wrap3">
-          <div class="float-left"> <button type="button" onclick="generateResult()">sounds good</button> </div>
-          <div class="float-right"> <button type="button" id="next" onclick="nextResult()"> try again</button> </div>
-        </div>
+          <button type="button" id="next" onclick="nextResult()">next result</button>
       </div>
     </div>
   </div>
   </section>
   <section class="section5" id="section5">
     <div class="content">
-      <h1> Damnit, that's it! </h1>
+      <h1> Damnit, no more! </h1>
       <h3> Would you like to search again?</h3>
       <<button type="button" onclick="pageScroll('section1')"> yup, i'm still hungry </button>
     </div>

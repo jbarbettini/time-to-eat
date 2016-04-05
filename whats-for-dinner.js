@@ -83,8 +83,12 @@ function waitForResults() {
     });
 
     currentRestaurant = 0;
-    print();
-    pageScroll('section4');
+    if (shortList.length > 0){
+      print();
+      pageScroll('section4');
+    } else {
+      pageScroll('section5');
+    }
 
   } else {
     setTimeout(waitForResults, 250);
@@ -127,17 +131,19 @@ function printURL(url){
 
 function nextResult(){
   currentRestaurant += 1;
-  print();
-  if (currentRestaurant === fullList.length - 1){
+  if (currentRestaurant === shortList.length){
       document.getElementById("next").disabled = true;
+      pageScroll('section5');
+  } else {
+    print();
   }
 }
 
 // do action & set parameter functions
 
-function confirmKey(e){
+function pressEnter(e){
   if (e.keyCode === 13) {
-    pageScroll('section1');
+    pageScroll('section3');
     return false;
   }
   return true;
