@@ -1,3 +1,5 @@
+// Calls Yelp API. Yelp requires OAuth 1.0a authentication on each request
+// https://www.yelp.com/developers/documentation/v2/authentication
 function yelpQuery(location, term, callback) {
   var baseUrl = 'https://api.yelp.com/v2/search';
   var method = 'GET';
@@ -17,6 +19,9 @@ function yelpQuery(location, term, callback) {
       sort: 2
   };
 
+  // In a real app, this would probably be hidden in the backend.
+  // But for the sake of this demo, I'm leaving it as is.
+  // Please don't mess with me. I'm just trying to learn javascript :)
   var consumerSecret = 'CgsakLLF-LVuCymnGrS771bI2gU';
   var tokenSecret = 'NdjiUUV9J20gqVHJFM45BN3Ph8A';
   var signature = oauthSignature.generate(method, baseUrl, params, consumerSecret, tokenSecret, { encodeSignature: false });
@@ -28,6 +33,8 @@ function yelpQuery(location, term, callback) {
   });
 }
 
+// Required for Yelp API access
+// Found how to do this via StackOverflow: http://stackoverflow.com/a/31556957/6159183
 function jsonp(uri, id, callbackName) {
     return new Promise(function(resolve, reject){
         window[callbackName] = function(data) {
@@ -46,12 +53,14 @@ function jsonp(uri, id, callbackName) {
     })
 }
 
+// Create random string to fit Yelp's oauth_nonce criteria
 function randomString(length, chars) {
     var result = '';
     for (var i = length; i > 0; --i) result += chars[Math.round(Math.random() * (chars.length - 1))];
     return result;
 }
 
+// Also via StackOverflow: http://stackoverflow.com/a/5505137/6159183
 function toQueryString(obj) {
     var parts = [];
     for (var i in obj) {
@@ -60,15 +69,4 @@ function toQueryString(obj) {
         }
     }
     return parts.join("&");
-}
-
-function googleQuery(latitude, longitude, name, callback){
-  var id = randomString(5, '0123456789');
-  var internalCallbackName = 'jsonp_callback_' + id
-
-  var url = "https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=" + latitude + "," + longitude + "&radius=500&type=restaurant&name=" + encodeURIComponent(name) + "&key=AIzaSyChUuOhQ2kncZSIHxHgNkaJk3NmEoXNPtg&jsonpCallback=" + internalCallbackName;
-
-  jsonp(url, id, internalCallbackName).then(function(data) {
-    callback(data);
-  });
 }
