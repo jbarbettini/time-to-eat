@@ -83,6 +83,8 @@ function waitForResults() {
     });
 
     currentRestaurant = 0;
+    document.getElementById('loading').style="display:none";
+
     if (shortList.length > 0){
       print();
       pageScroll('section4');
@@ -170,6 +172,15 @@ function cleanCategories (categories){
     indivCategories.push(categories[i][0]) + ", ";
   }
   return indivCategories.join(", ");
+}
+
+function reset(){
+  currentrestaurant = 0;
+  fullList = [];
+  shortList = [];
+  document.getElementById('location').value = "";
+  document.getElementById("next").disabled = false;
+  pageScroll('section1');
 }
 
 // Google Places & Maps API
