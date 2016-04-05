@@ -1,9 +1,80 @@
 <html>
 <head>
   <title>whats-for-dinner</title>
+  <script lang="javascript" src="whats-for-dinner.js"></script>
   <script lang="javascript" src="http.js"></script>
+  <script lang="javascript" src="oauth-signature.js"></script>
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCwUmqlFVZj_nkVs0MbGSbfLnED3D8tn6g&libraries=places"></script>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <h1>whats-for-dinner</h1>
+  <section class="section1" id="section1">
+    <div class="content">
+      <h1>what do you want to eat?</h1>
+      <h2> The quick solution to life's most difficult #firstworldproblem. </h2>
+      <h4> Let's face it - you have waaaay too many options when it comes to choosing a place to go out to eat. You sift through reviews, scan menus and call about wait times, only to give up and eat those sad-looking leftovers in your fridge once again. Information overload takes its toll on another meal. </h4>
+      <h4> If you're tired of suffering from perpetual restaurant indecision with your significant other, family members or your inner foodie, we've got you covered. </h4>
+      <h4> Consider this your "I'm feelin' lucky" button for restauranteuring. We'll narrow down the highest rated and most reviewed restaurants that fit your criteria and make your decision for you. No arguments, no ambiguity, no drama. Just a decision...and some great food.</h4>
+      <button type="button" onclick="pageScroll('section2')"> I'm hungry </button>
+    </div>
+  </section>
+  <section class="section2" id="section2">
+    <div class="content">
+      <h1> Where are you right now? </h1>
+      <input id="location" type="text" />
+      <button type="button" onclick="pageScroll('section3')"> submit </button>
+    </div>
+  </section>
+  <section class="section3" id="section3">
+    <div class="content">
+      <h1> what are you in the mood for?</h1>
+      <div class="wrap3">
+        <div class="float-left">
+          <button type="button" onclick="setPriceRange(1)"> Quick n' Easy </button>
+          <h3> $ </h3>
+        </div>
+        <div class="float-middle">
+          <button type="button" onclick="setPriceRange(2)"> Nice (ish)</button>
+          <h3> $$ - $$$ </h3>
+        </div>
+        <div class="float-right">
+          <button type="button" onclick="setPriceRange(4)"> Fancy Pants </button>
+          <h3> $$$$ </h3>
+        </div>
+        <div id="loading"></div>
+      </div>
+  </section>
+  <section class="section4" id="section4">
+    <div class="container">
+      <div class="container-header">
+        <h1> How about this?</h1>
+        <h2 id="restaurant-name">  </h2>
+        <h4 class="make-center"><strong>What you'll find here: </strong><span id="category"></span></h4>
+      </div>
+      <div class="container-main">
+        <p class="font-20"><span id="rating"></span> with <span id="review-count"></span> reviews</p>
+        <p><strong>Why you should go here: </strong><span id="snippet"></span><span id="read-more"></span></p>
+      </div>
+      <div class="container-side">
+        <p id="location-display"> </p>
+        <p id="phone"> </p>
+        <div id="map"></div>
+      </div>
+      <div class="container-footer">
+        <div class="wrap3">
+          <div class="float-left"> <button type="button" onclick="generateResult()">sounds good</button> </div>
+          <div class="float-right"> <button type="button" id="next" onclick="nextResult()"> try again</button> </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  </section>
+  <section class="section5" id="section5">
+    <div class="content">
+      <h1> Damn, that's it! </h1>
+      <h3> Would you like to search again?</h3>
+      <<button type="button" onclick="pageScroll('section1')"> yup, i'm still hungry </button>
+    </div>
+  </section>
 </body>
 </html>
