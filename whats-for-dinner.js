@@ -5,8 +5,6 @@ var desiredPrice;
 var travelTime;
 var travelMode;
 
-// return result to user
-
 function generateResult() {
   var location = document.getElementById('location').value;
 
@@ -20,6 +18,7 @@ function generateResult() {
       });
     fullList = sortedList;
 
+    document.getElementById('section4').style = "";
     initMap({lat: response.region.center.latitude, lng: response.region.center.longitude});
     var service = new google.maps.places.PlacesService(map);
 
@@ -153,6 +152,7 @@ function pressEnter(e){
 
 function pageScroll(nextSection){
   var element = document.getElementById(nextSection);
+  element.style="";
   element.scrollIntoView();
 }
 
@@ -178,12 +178,14 @@ function reset(){
   currentrestaurant = 0;
   fullList = [];
   shortList = [];
+  document.getElementById('section2').style="display:none";
+  document.getElementById('section3').style="display:none";
+  document.getElementById('section4').style="display:none";
+  document.getElementById('section5').style="display:none";
   document.getElementById('location').value = "";
   document.getElementById("next").disabled = false;
   pageScroll('section1');
 }
-
-// Google Places & Maps API
 
 var map;
 var infowindow;
