@@ -172,8 +172,6 @@ function cleanCategories (categories){
   return indivCategories.join(", ");
 }
 
-
-
 // Google Places & Maps API
 
 var map;
@@ -183,7 +181,7 @@ var currentMarker;
 function initMap(location) {
   map = new google.maps.Map(document.getElementById('map'), {
     center: location,
-    zoom: 12
+    zoom: 11
   });
 
   infowindow = new google.maps.InfoWindow();
