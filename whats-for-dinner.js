@@ -57,7 +57,7 @@ function generateResult() {
 // Google API has an frequency limit for database requests.
 // These functions help delay the response times so that I can compare Yelp to Google API successfully
 
-function isReady(listArray){
+function isReadyTest(listArray){
   var stillFalse = listArray.filter(function(item){
     return item['googlePlacesStatus'] === false;
   });
@@ -69,7 +69,7 @@ function isReady(listArray){
 }
 
 function waitForResults() {
-  if (isReady(fullList)){
+  if (isReadyTest(fullList)){
     shortList = fullList.filter(function(restaurant){
       if (desiredPrice === 1 && (restaurant.priceLevel === 1 || restaurant.priceLevel === 0)){
         return true;
@@ -154,6 +154,7 @@ function weightedRating(restaurant){
 
 function setPriceRange(userPriceInput){
   desiredPrice = userPriceInput;
+  document.getElementById('loading').style="";
   generateResult();
 }
 

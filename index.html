@@ -1,6 +1,6 @@
 <html>
 <head>
-  <title>whats-for-dinner</title>
+  <title>time-to-eat</title>
   <script lang="javascript" src="whats-for-dinner.js"></script>
   <script lang="javascript" src="http.js"></script>
   <script lang="javascript" src="oauth-signature.js"></script>
@@ -41,7 +41,12 @@
           <button type="button" onclick="setPriceRange(4)"> Fancy Pants </button>
           <h3> $$$$ </h3>
         </div>
-        <div id="loading"></div>
+        <div id="loading" style="display:none">
+          <img src="images/loading.gif">
+          <img src="images/food.png" style="width:50px">
+          <p style="font-size:16px; color: light gray; margin:0px -10%;">finding restaurant...</p>
+        </div>
+
       </div>
   </section>
   <section class="section4" id="section4">
@@ -71,7 +76,7 @@
   </section>
   <section class="section5" id="section5">
     <div class="content">
-      <h1> Damn, that's it! </h1>
+      <h1> Damnit, that's it! </h1>
       <h3> Would you like to search again?</h3>
       <<button type="button" onclick="pageScroll('section1')"> yup, i'm still hungry </button>
     </div>

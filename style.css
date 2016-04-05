@@ -179,13 +179,8 @@
 		margin: 20px;
 	}
 	#loading {
-    margin: auto;
-    position: center;
-    z-index: 1000;
-    width: 100px;
-    height: 100px;
-    background: url(images/loading.gif) no-repeat;
-    cursor: wait;
+    margin: 15% 30%;
+    position: absolute;
     }
 	.font-20{
 		font-size: 20px;
