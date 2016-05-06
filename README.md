@@ -1,9 +1,8 @@
 #Time To Eat
 
-The quick solution to life's most difficult #firstworldproblem
-------
+####The quick solution to life's most difficult #firstworldproblem
 
-###How familiar is this conversation to you?
+**How familiar is this conversation to you?**
 
 “Where do you want to go to eat?”
 
@@ -23,7 +22,7 @@ The quick solution to life's most difficult #firstworldproblem
 
 Nothing ruins relationship bliss like a little indecision. Luckily, there’s a tool that can help with that.
 
-####Hungry? It's [Time To Eat](http://jbarbettini.github.io/time-to-eat/)
+*Hungry? It's [Time To Eat](http://jbarbettini.github.io/time-to-eat/)*
 
 **About This Project**
 
