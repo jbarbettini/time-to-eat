@@ -1,6 +1,4 @@
-#Time To Eat
-
-####The quick solution to life's most difficult #firstworldproblem
+##Time To Eat: _The quick solution to life's most difficult #firstworldproblem_
 
 **How familiar is this conversation to you?**
 
